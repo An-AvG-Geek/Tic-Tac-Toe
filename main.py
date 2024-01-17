@@ -25,13 +25,12 @@ def main():
 
         check = full(board)
 
+
 def heading():
     print()
     f = Figlet()
     f.setFont(font="slant")
     print(f.renderText("Tic - Tac - Toe"))
-
-
 
 
 def display_board(board):
