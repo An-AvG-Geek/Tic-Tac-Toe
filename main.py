@@ -15,9 +15,9 @@ name2 = ""
 
 
 def main():
-    global name1
-    global name2
-    name1, name2 = set_names()
+    global player1
+    global player2
+    player1, player2 = set_names()
 
     board = [["-", "-", "-"], ["-", "-", "-"], ["-", "-", "-"]]
     display_board(board)
@@ -26,8 +26,7 @@ def main():
     count = 0
     while check == False:
         board = play(board, count)
-        if board == "again":
-            continue
+        
 
         display_board(board)
         count = count + 1
@@ -50,7 +49,7 @@ def display_board(board):
 
 
 def set_names():
-    player1 = input("player 1 : Enter your name")
+    player1 = input("player 1 : Enter your name ")
     player2 = input("player 2: Enter your name ")
     return player1, player2
 
@@ -112,34 +111,23 @@ def full(board):
 
 
 def play(board, count):
-    if count % 2 == 0:
-        x = int(input(f"{name1} where do you want to input "))
-        row, col = positions[x].split()
-        row=int(row)
-        col=int(col)
+    if count%2==0:
+        value=int(input(f"{player1} where do you want to input "))
+        row,col=positions[value].split()
+        board[int(row)][int(col)]='x'
+        
 
-
-
-        if board[row][col] in ["x", "0"]:
-            print("The position is already filled ....")
-
-            return "again"
-        else:
-            board[row][col] = "x"
-            return board
     else:
-        x = int(input(f"{name2} where do you want to input "))
-        row, col = positions[x].split()
-        row=int(row)
-        col=int(col)
+        value=int(input(f"{player2} where do you want to input "))
+        row,col=positions[value].split()
+        board[int(row)][int(col)]='0'
+
+    return board
 
 
-        if board[row][col] in ["x", "0"]:
-            print("The position is already filled.... ")
-            return "again"
-        else:
-            board[row][row] = "0"
-            return board
+    
+    
+    
 
 
 if __name__ == "__main__":
