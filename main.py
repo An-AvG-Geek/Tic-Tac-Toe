@@ -1,20 +1,13 @@
-positions = {
-    1: "0 0",
-    2: "0 1",
-    3: "0 2",
-    4: "1 0",
-    5: "1 1",
-    6: "1 2",
-    7: "2 0",
-    8: "2 1",
-    9: "2 2",
-}
+from keys import positions
+from pyfiglet import *
 
 name1 = ""
 name2 = ""
 
 
 def main():
+    heading()
+
     global player1
     global player2
     player1, player2 = set_names()
@@ -31,6 +24,14 @@ def main():
         count = count + 1
 
         check = full(board)
+
+def heading():
+    print()
+    f = Figlet()
+    f.setFont(font="slant")
+    print(f.renderText("Tic - Tac - Toe"))
+
+
 
 
 def display_board(board):
