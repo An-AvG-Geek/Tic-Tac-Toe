@@ -26,7 +26,6 @@ def main():
     count = 0
     while check == False:
         board = play(board, count)
-        
 
         display_board(board)
         count = count + 1
@@ -112,49 +111,30 @@ def full(board):
 
 def play(board, count):
     while True:
-        if count%2==0:
-            value=int(input(f"{player1} where do you want to input "))
-            
+        if count % 2 == 0:
+            value = int(input(f"{player1} where do you want to input "))
+
         else:
-            value=int(input(f"{player2} where do you want to input "))
-        
-        if validate(value,board)==True:
-            row,col=positions[value].split()
-            if count%2==0:
-                board[int(row)][int(col)]="x"
+            value = int(input(f"{player2} where do you want to input "))
+
+        if validate(value, board) == True:
+            row, col = positions[value].split()
+            if count % 2 == 0:
+                board[int(row)][int(col)] = "x"
 
             else:
-                board[int(row)][int(col)]="0"
+                board[int(row)][int(col)] = "0"
 
             break
 
-
     return board
 
-            
-                
-            
-            
 
-                
-
-        
-
-
-def validate(value,board):
-    row,col=positions[value].split()
-    if board[int(row)][int(col)] not in ["x","0"]:
-        
+def validate(value, board):
+    row, col = positions[value].split()
+    if board[int(row)][int(col)] not in ["x", "0"]:
         return True
-        
-
-    
-    
 
 
 if __name__ == "__main__":
     main()
-
-
-
-    
