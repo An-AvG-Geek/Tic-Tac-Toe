@@ -143,7 +143,8 @@ def play(board, count):
 
 def validate(value,board):
     row,col=positions[value].split()
-    if board[int(row)][int(col)] in ["x","0"]:
+    if board[int(row)][int(col)] not in ["x","0"]:
+        
         return True
         
 
