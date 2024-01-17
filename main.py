@@ -10,8 +10,16 @@ positions = {
     9: "2 2",
 }
 
+name1=''
+name2=''
 
 def main():
+    global name1
+    global name2
+    name1,name2=set_names()
+    
+
+
     board = [["-", "-", "-"], ["-", "-", "-"], ["-", "-", "-"]]
     display_board(board)
 
@@ -19,19 +27,18 @@ def main():
     count = 0
     while check == False:
         board = play(board, count)
+        if board=='again':
+            continue
+
         display_board(board)
         count=count+1
+        
+
 
         check = full(board)
 
 
-    # while True:
-    #     player_1=input("Do you want to choose X or 0 ? ")
 
-    #     if player_1 in ["x","0"]:
-    #         break
-
-    #     print("Please Enter a valid input....")
 
 
 def display_board(board):
@@ -47,6 +54,10 @@ def display_board(board):
              """
     )
 
+def set_names():
+    player1=input("player 1 : Enter your name")
+    player2=input("player 2: Enter your name ")
+    return player1,player2
 
 def full(board):
     if (
@@ -106,17 +117,29 @@ def full(board):
 
 def play(board, count):
     if count % 2 == 0:
-        x = int(input("player 1 where do you want to input "))
+        x = int(input(f"{name1} where do you want to input "))
         row, col = positions[x].split()
 
-        board[int(row)][int(col)] = "x"
-        return board
+        if board[int(row)][int(col)] in ["x",'0']:
+            print("The position is already filled ....")
+
+            return "again"
+        else:
+
+            board[int(row)][int(col)] = "x"
+            return board
     else:
-        x = int(input("player 1 where do you want to input "))
+        x = int(input(f"{name2} where do you want to input "))
         row, col = positions[x].split()
 
-        board[int(row)][int(col)] = "0"
-        return board
+        if board[int(row)][int(col)] in ["x","0"]:
+            print("The position is already filled.... ")
+            return 'again'
+        else:
+        
+
+            board[int(row)][int(col)] = "0"
+            return board
 
 
 if __name__ == "__main__":
