@@ -111,21 +111,42 @@ def full(board):
 
 
 def play(board, count):
-    if count%2==0:
-        value=int(input(f"{player1} where do you want to input "))
-        row,col=positions[value].split()
-        board[int(row)][int(col)]='x'
+    while True:
+        if count%2==0:
+            value=int(input(f"{player1} where do you want to input "))
+            
+        else:
+            value=int(input(f"{player2} where do you want to input "))
         
+        if validate(value,board)==True:
+            row,col=positions[value].split()
+            if count%2==0:
+                board[int(row)][int(col)]="x"
 
-    else:
-        value=int(input(f"{player2} where do you want to input "))
-        row,col=positions[value].split()
-        board[int(row)][int(col)]='0'
+            else:
+                board[int(row)][int(col)]="0"
+
+            break
+
 
     return board
 
+            
+                
+            
+            
 
-    
+                
+
+        
+
+
+def validate(value,board):
+    row,col=positions[value].split()
+    if board[int(row)][int(col)] in ["x","0"]:
+        return True
+        
+
     
     
 
