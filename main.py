@@ -20,9 +20,10 @@ def main():
     while check == False:
         board = play(board, count)
         display_board(board)
+        count=count+1
+
         check = full(board)
 
-    print("somebody won")
 
     # while True:
     #     player_1=input("Do you want to choose X or 0 ? ")
@@ -99,6 +100,8 @@ def full(board):
         and board[1][1] == board[0][2]
     ):
         return True
+    else :
+        return False
 
 
 def play(board, count):
