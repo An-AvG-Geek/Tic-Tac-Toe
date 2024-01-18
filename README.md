@@ -1,4 +1,4 @@
-# Tic-Tac-Toe
+# Tic-Tac-Toe_Console-Version
 
 ## Overview
 This Python script implements a classic Tic-Tac-Toe game in the console. Players can input their names, take turns to make moves, view the game history, and decide whether to continue playing or exit. The game results are recorded in a file, and players have the option to display the game history in a tabular format.
