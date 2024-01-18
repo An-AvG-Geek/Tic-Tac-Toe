@@ -13,9 +13,13 @@ This Python script implements a classic Tic-Tac-Toe game in the console. Players
 ## How To Play
 
 1.Run the script in a Python environment.
+
 2.Input player names when prompted.
+
 3.Make moves by entering positions on the board (1-9).
+
 4.View game results and history.
+
 5.Choose to continue playing or exit.
 
 ## Dependencies
