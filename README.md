@@ -27,7 +27,7 @@ This Python script implements a classic Tic-Tac-Toe game in the console. Players
 - pyfiglet: For generating ASCII art titles.
 - tabulate: For formatting and displaying game history.
 
-  ## Getting Started
+## Getting Started
 
 1.Clone the repository
 ````bash
