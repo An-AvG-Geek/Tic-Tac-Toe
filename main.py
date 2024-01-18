@@ -8,37 +8,44 @@ name2 = ""
 
 
 def main():
-    heading()
+    while True:
 
-    global player1
-    global player2
-    player1, player2 = set_names()
+        heading()
 
-    board = [["-", "-", "-"], ["-", "-", "-"], ["-", "-", "-"]]
-    display_board(board)
+        global player1
+        global player2
+        player1, player2 = set_names()
 
-    check = False
-    count = 0
-    while check == False:
-        try:
-            board = play(board, count)
+        board = [["-", "-", "-"], ["-", "-", "-"], ["-", "-", "-"]]
+        display_board(board)
 
-            display_board(board)
-            count = count + 1
+        check = False
+        count = 0
+        while check == False:
+            try:
+                board = play(board, count)
 
-            check,player = full(board)
-        except (ValueError,KeyError):
-            print("Enter valid value (1-9) ")
+                display_board(board)
+                count = count + 1
 
-            print()
-            continue
+                check,player = full(board)
+            except (ValueError,KeyError):
+                print("Enter valid value (1-9) ")
 
-    if player==1:
-        print(f"{player1} has won ")
-    elif player==2:
-        print(f"{player2} has won ")
-    elif player==0:
-        print("the game has ended in a draw")
+                print()
+                continue
+
+        if player==1:
+            print(f"{player1} has won ")
+        elif player==2:
+            print(f"{player2} has won ")
+        elif player==0:
+            print("the game has ended in a draw")
+
+        cont=input("do you want to continue (y/n) ").lower().strip()
+        if count=='n':
+            print("exiting from program....")
+            break
 
 
 
@@ -54,8 +61,8 @@ def heading():
 
 
 def set_names():
-    player1 = input("player 1 : Enter your name ")
-    player2 = input("player 2: Enter your name ")
+    player1 = input("player 1 : Enter your name ").strip().capitalize()
+    player2 = input("player 2: Enter your name ").strip().capitalize()
     return player1, player2
 
 
