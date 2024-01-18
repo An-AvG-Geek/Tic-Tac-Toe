@@ -20,12 +20,18 @@ def main():
     check = False
     count = 0
     while check == False:
-        board = play(board, count)
+        try:
+            board = play(board, count)
 
-        display_board(board)
-        count = count + 1
+            display_board(board)
+            count = count + 1
 
-        check,player = full(board)
+            check,player = full(board)
+        except (ValueError,KeyError):
+            print("Enter valid value (1-9) ")
+
+            print()
+            continue
 
     if player==1:
         print(f"{player1} has won ")
