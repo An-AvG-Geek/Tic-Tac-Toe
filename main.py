@@ -2,6 +2,7 @@ from keys import positions
 from pyfiglet import *
 from full import full
 from display import display_board
+from datetime import *
 
 name1 = ""
 name2 = ""
@@ -9,7 +10,6 @@ name2 = ""
 
 def main():
     while True:
-
         heading()
 
         global player1
@@ -28,26 +28,24 @@ def main():
                 display_board(board)
                 count = count + 1
 
-                check,player = full(board)
-            except (ValueError,KeyError):
+                check, player = full(board)
+            except (ValueError, KeyError):
                 print("Enter valid value (1-9) ")
 
                 print()
                 continue
 
-        if player==1:
+        if player == 1:
             print(f"{player1} has won ")
-        elif player==2:
+        elif player == 2:
             print(f"{player2} has won ")
-        elif player==0:
+        elif player == 0:
             print("the game has ended in a draw")
 
-        cont=input("do you want to continue (y/n) ").lower().strip()
-        if count=='n':
+        cont = input("do you want to continue (y/n) ").lower().strip()
+        if count == "n":
             print("exiting from program....")
             break
-
-
 
 
 def heading():
@@ -57,15 +55,10 @@ def heading():
     print(f.renderText("Tic - Tac - Toe"))
 
 
-
-
-
 def set_names():
     player1 = input("player 1 : Enter your name ").strip().capitalize()
     player2 = input("player 2: Enter your name ").strip().capitalize()
     return player1, player2
-
-
 
 
 def play(board, count):
@@ -93,6 +86,7 @@ def validate(value, board):
     row, col = positions[value].split()
     if board[int(row)][int(col)] not in ["x", "0"]:
         return True
+  
 
 
 if __name__ == "__main__":
