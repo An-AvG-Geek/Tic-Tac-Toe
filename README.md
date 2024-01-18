@@ -37,9 +37,13 @@ git clone https://github.com/your_username/tic-tac-toe.git
 ````bash
 pip install -r requirements.txt
 ````
-3.Run the script:
+3.Navigate into Directory:
 ````bash
-python tic_tac_toe.py
+cd console_version
+````
+4.Run the python script:
+````bash
+python main.py
 ````
 
 ## Contributions
