@@ -1,6 +1,4 @@
 def full(board):
-    
-
     if (
         (board[0][0] and board[0][1] in ["x", "0"])
         and board[0][0] == board[0][1]
