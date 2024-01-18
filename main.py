@@ -3,6 +3,8 @@ from pyfiglet import *
 from full import full
 from display import display_board
 from datetime import *
+from tabulate import tabulate
+
 
 name1 = ""
 name2 = ""
@@ -45,8 +47,22 @@ def main():
             print("the game has ended in a draw")
             write_to_file(player1,player2,None)
 
+        history=input("Do you want to display history (press h) ").lower().strip()
+
+        if history=='h':
+            l=[]
+
+            with open("Result.txt","r") as f:
+                for data in f:
+                    l.append(data.split())
+
+            print(l)
+
+            print(tabulate(l,headers=['player1','player2','winner','date']))
+
+
         cont = input("do you want to continue (y/n) ").lower().strip()
-        if count == "n":
+        if cont == "n":
             print("exiting from program....")
             break
 
@@ -94,7 +110,7 @@ def write_to_file(player1,player2,win_player):
     if win_player != None:
 
         with open("Result.txt","a") as f:
-            f.write(f"{player1} {player2} {win_player} {date.today()}")
+            f.write(f"{player1} {player2} {win_player} {date.today()}\n")
 
     else :
         with open("Results.txt","a") as f:
