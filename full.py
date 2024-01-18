@@ -1,13 +1,5 @@
 def full(board):
-    not_draw = 0
-
-    for i in board:
-        for j in i:
-            if j not in ["x", "0"]:
-                not_draw = 1
-
-    if not_draw == 0:
-        return True, 0
+    
 
     if (
         (board[0][0] and board[0][1] in ["x", "0"])
@@ -91,4 +83,13 @@ def full(board):
             return True, 2
 
     else:
+        not_draw = 0
+
+        for i in board:
+            for j in i:
+                if j not in ["x", "0"]:
+                    not_draw = 1
+
+        if not_draw == 0:
+            return True, 0
         return False, 3
