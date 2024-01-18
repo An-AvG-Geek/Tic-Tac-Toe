@@ -1,6 +1,7 @@
 from keys import positions
 from pyfiglet import *
 from full import full
+from display import display_board
 
 name1 = ""
 name2 = ""
@@ -24,7 +25,16 @@ def main():
         display_board(board)
         count = count + 1
 
-        check = full(board)
+        check,player = full(board)
+
+    if player==1:
+        print(f"{player1} has won ")
+    elif player==2:
+        print(f"{player2} has won ")
+    elif player==0:
+        print("the game has ended in a draw")
+
+
 
 
 def heading():
@@ -34,18 +44,7 @@ def heading():
     print(f.renderText("Tic - Tac - Toe"))
 
 
-def display_board(board):
-    print(
-        f"""
-              -------------
-              | {board[0][0]} | {board[0][1]} | {board[0][2]} |
-              -------------
-              | {board[1][0]} | {board[1][1]} | {board[1][2]} |
-              -------------
-              | {board[2][0]} | {board[2][1]} | {board[2][2]} |
-              -------------
-             """
-    )
+
 
 
 def set_names():
