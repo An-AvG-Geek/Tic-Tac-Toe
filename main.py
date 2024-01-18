@@ -1,5 +1,6 @@
 from keys import positions
 from pyfiglet import *
+from full import full
 
 name1 = ""
 name2 = ""
