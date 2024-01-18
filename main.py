@@ -39,27 +39,31 @@ def main():
 
         if player == 1:
             print(f"{player1} has won ")
-            write_to_file(player1,player2,player1)
+            write_to_file(player1, player2, player1)
         elif player == 2:
             print(f"{player2} has won ")
-            write_to_file(player1,player2,player2)
+            write_to_file(player1, player2, player2)
         elif player == 0:
             print("the game has ended in a draw")
-            write_to_file(player1,player2,None)
+            write_to_file(player1, player2, None)
 
-        history=input("Do you want to display history (press h) ").lower().strip()
+        history = input("Do you want to display history (press h) ").lower().strip()
 
-        if history=='h':
-            l=[]
+        if history == "h":
+            l = []
 
-            with open("Result.txt","r") as f:
+            with open("Result.txt", "r") as f:
                 for data in f:
                     l.append(data.split())
+            print()
 
-            print(l)
-
-            print(tabulate(l,headers=['player1','player2','winner','date']))
-
+            print(
+                tabulate(
+                    l,
+                    headers=["player1", "player2", "winner", "date"],
+                    tablefmt="pretty",
+                )
+            )
 
         cont = input("do you want to continue (y/n) ").lower().strip()
         if cont == "n":
@@ -105,18 +109,16 @@ def validate(value, board):
     row, col = positions[value].split()
     if board[int(row)][int(col)] not in ["x", "0"]:
         return True
-  
-def write_to_file(player1,player2,win_player):
-    if win_player != None:
 
-        with open("Result.txt","a") as f:
+
+def write_to_file(player1, player2, win_player):
+    if win_player != None:
+        with open("Result.txt", "a") as f:
             f.write(f"{player1} {player2} {win_player} {date.today()}\n")
 
-    else :
-        with open("Results.txt","a") as f:
+    else:
+        with open("Result.txt", "a") as f:
             f.write(f"{player1} {player2} {None} {datetime.today()}")
-
-
 
 
 if __name__ == "__main__":
