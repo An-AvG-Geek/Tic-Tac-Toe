@@ -37,10 +37,13 @@ def main():
 
         if player == 1:
             print(f"{player1} has won ")
+            write_to_file(player1,player2,player1)
         elif player == 2:
             print(f"{player2} has won ")
+            write_to_file(player1,player2,player2)
         elif player == 0:
             print("the game has ended in a draw")
+            write_to_file(player1,player2,None)
 
         cont = input("do you want to continue (y/n) ").lower().strip()
         if count == "n":
@@ -87,6 +90,17 @@ def validate(value, board):
     if board[int(row)][int(col)] not in ["x", "0"]:
         return True
   
+def write_to_file(player1,player2,win_player):
+    if win_player != None:
+
+        with open("Result.txt","a") as f:
+            f.write(f"{player1} {player2} {win_player} {date.today()}")
+
+    else :
+        with open("Results.txt","a") as f:
+            f.write(f"{player1} {player2} {None} {datetime.today()}")
+
+
 
 
 if __name__ == "__main__":
