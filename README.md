@@ -9,7 +9,7 @@ This Python script implements a classic Tic-Tac-Toe game in the console. Players
 - Player Names: Set custom names for Player 1 and Player 2 at the beginning of each game.
 - Game History: View a table of past game results, including player names, winners, and dates.
 - Flexible Continuation: Choose to continue playing or exit after each game.
-- 
+  
 ## How To Play
 
 1.Run the script in a Python environment.
