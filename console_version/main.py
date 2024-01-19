@@ -118,7 +118,7 @@ def write_to_file(player1, player2, win_player):
 
     else:
         with open("Result.txt", "a") as f:
-            f.write(f"{player1} {player2} {None} {datetime.today()}")
+            f.write(f"{player1} {player2} {None} {datetime.today()}\n")
 
 
 if __name__ == "__main__":
